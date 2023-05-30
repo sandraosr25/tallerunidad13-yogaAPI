@@ -1,38 +1,178 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  font-family: 'Courgette';
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: 56px;
+  background-color: rgb(199, 78, 171);
+  color: white;
+  text-shadow: 1px 1px 2px rgb(225, 206, 219);;
+  margin: 0 auto 10px auto;
+  padding: 5px;
+
+}
+
+.App {
+  margin-top: 20px;
+}
+
+.select-posture-message{
+  color: purple;
+  margin: auto 100px auto 400px;
+  padding: 10px 20px;
+}
+
+.listado{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.item{
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px 10px 5px 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+  opacity: 0.85;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);;
+}
+
+.item:hover{
+  background-color: #f0f0f0;
+  opacity: 1;
+}
+
+.item-list{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.item-image{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.item-content .item-name{
+  text-align: center;
+}
+
+.item-name{
+  margin: auto;
+  text-transform: uppercase;
+  color: purple;
+}
+
+.detail-content{
+  display: flex;
+  text-align: left;
+  align-items: center;
+  margin: 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);;
+}
+
+.detail-info{
+  margin-left: 10px;
+  padding: 10px;
+
+}
+
+#detail-item{
+  font-weight: bold;
+  text-align: left;
+  margin-left: 5px;
+}
+
+p{
+  margin-left: 5px;
+}
+
+h2{
+  margin: auto;
+  text-transform: uppercase;
+  color: purple;
+}
+
+.detail-image{
+  margin-left: 10px;
+  width: 400px;
+  height: 300px;
+}
+
+.details-button {
+  padding: 10px 20px;
+  background-color: rgb(198, 44, 162);
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.login{
+  max-width: 300px;
+  margin: 40px auto;
+  text-align: left;
+  border: solid rgb(181, 179, 179);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.login h2{
+  text-align: center;
+  font-style: italic;
+  color: rgb(66, 64, 64);
+  margin: 5px auto;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+}
+
+.login label{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.login input{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.login button{
+  padding: 10px 20px;
+  background-color: rgb(198, 44, 162);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.button-logout{
+  margin: auto;
+  background-color: rgb(198, 44, 162);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error-message{
+  color: rgb(154, 25, 25);
 }
