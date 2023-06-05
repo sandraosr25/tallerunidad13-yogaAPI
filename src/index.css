@@ -10,10 +10,256 @@ body {
   background-size: cover;
 }
 
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+.header {
+  font-family: 'Courgette';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 56px;
+  background-color: rgb(199, 78, 171);
+  color: white;
+  text-shadow: 1px 1px 2px rgb(225, 206, 219);;
+  margin: 0 auto 10px auto;
+  padding: 5px;
+}
+
+@media screen and (max-width: 900px){
+  .header{
+    margin: auto;
+  }
+  body{
+  background-size: cover;
+}
+}
+
+.App {
+  margin-top: 20px;
+}
+
+.mensaje-seleccion-postura{
+  color: purple;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+@media screen and (max-width: 900px){
+  .mensaje-seleccion-postura{
+    margin: auto;
+  }
+}
+
+.listado{
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+@media screen and (max-width: 900px){
+  .listado{
+    display: inline-block;
+  }
+}
+
+.item{
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px 10px 5px 10px;
+  display: flex;
+  opacity: 0.85;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+  width: 400px;
+}
+
+@media screen and (max-width: 900px){
+  .item{
+    display: inline-block;
+  }
+}
+
+.item:hover{
+  background-color: #faf3f6;
+  opacity: 1;
+}
+
+.item-list{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+@media screen and (max-width: 900px){
+  .item-list{
+    display: inline-block;
+    max-width: fit-content;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .item-list{
+    display: inline-block;
+  }
+}
+
+.item-image{
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.item-content .item-name{
+  text-align: center;
+}
+
+.item-name{
+  margin: auto;
+  text-transform: uppercase;
+  color: purple;
+}
+
+.detail-content{
+  display: flex;
+  text-align: left;
+  align-items: center;
+  margin: 20px;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  opacity: 0.85;
+  transition: 0.3s;
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);;
+
+}
+
+@media screen and (max-width: 900px){
+  .detail-content{
+    display: inline-block;
+  }
+}
+
+.detail-info{
+  margin-left: 10px;
+  padding: 10px;
+
+}
+
+#detail-item{
+  font-weight: bold;
+  text-align: left;
+  margin-left: 5px;
+}
+
+p{
+  margin-left: 5px;
+}
+
+h2{
+  margin: auto;
+  text-transform: uppercase;
+  color: purple;
+}
+
+.detail-image{
+  margin-left: 10px;
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.details-button {
+  padding: 10px 20px;
+  background-color: rgb(198, 44, 162);
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.login{
+  max-width: 300px;
+  margin: 40px auto;
+  text-align: left;
+  border: solid rgb(181, 179, 179);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.login h2{
+  text-align: center;
+  font-style: italic;
+  color: rgb(66, 64, 64);
+  margin: 5px auto;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+}
+
+.login label{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.login input{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.login button{
+  padding: 10px 20px;
+  background-color: rgb(198, 44, 162);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  color: white;
+}
+
+.button-logout{
+  margin: auto;
+  background-color: rgb(198, 44, 162);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+}
+
+.mensaje-error{
+  color: rgb(154, 25, 25);
+}
+
+.video-button{
+  box-shadow: 0 0 0 1px #a333c8 inset!important;
+  color: #a333c8!important;
+  font-weight: 400;
+  border-radius: 0.28571429rem;
+  text-transform: none;
+  text-shadow: none!important;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 1em;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  margin: 0 0.2em 0 0;
+  padding: 0.6em 0.8em 0.6em;
 }
 

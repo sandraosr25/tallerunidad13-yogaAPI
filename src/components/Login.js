@@ -16,7 +16,6 @@ export default function Login({onLogin}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        //Validación de credenciales: revisar JWT (JSON Web Tokens) o autenticación basada en sesiones.
         if(nombreUsuario === 'sandra' && contraseña === '1234'){
             onLogin();
         }else{
@@ -27,7 +26,7 @@ export default function Login({onLogin}) {
     return(
         <div className='login'>
             <h2>Inicia sesión</h2>
-            <p className='error-message'>{error}</p>
+            <p className='mensaje-error'>{error}</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     Nombre de usuario:
