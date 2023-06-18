@@ -21,14 +21,17 @@ code {
   font-family: 'Courgette';
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   font-size: 56px;
   background-color: rgb(199, 78, 171);
   color: white;
   text-shadow: 1px 1px 2px rgb(225, 206, 219);;
-  margin: 0 auto 10px auto;
+  margin: 0;
   padding: 5px;
+}
+
+.header-image{
+  height: 200px;
 }
 
 @media screen and (max-width: 900px){
@@ -53,13 +56,14 @@ code {
 @media screen and (max-width: 900px){
   .mensaje-seleccion-postura{
     margin: auto;
+    text-align: center;
   }
 }
 
 .listado{
   margin-top: 30px;
-  margin-bottom: 40px;
-  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 @media screen and (max-width: 900px){
@@ -73,12 +77,13 @@ code {
   border-radius: 30px;
   padding: 10px;
   cursor: pointer;
-  margin: 5px 10px 5px 10px;
+  margin: 5px 10px 10px 15px;
+  align-items: center;
   display: flex;
   opacity: 0.85;
   transition: 0.3s;
   box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
-  width: 400px;
+  width: 360px;
 }
 
 @media screen and (max-width: 900px){
@@ -231,14 +236,14 @@ h2{
 }
 
 .button-logout{
-  margin: auto;
+  margin: 30px auto auto auto;
   background-color: rgb(198, 44, 162);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color: white;
   padding: 10px 20px;
-  display: flex;
+  display: block;
 }
 
 .mensaje-error{
