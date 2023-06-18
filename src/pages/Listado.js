@@ -1,52 +1,55 @@
 import { useNavigate } from "react-router-dom";
-import React from "react";
-import { DatosPosturas } from "../Objeto";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import Logout from "../components/Logout";
 
-export default function Home() {
+export default function Listado() {
     const navigate = useNavigate();
-    const [itemSeleccionado, setItemSeleccionado] = useState('');
+    const [selectedItem, setSelectedItem] = useState('');
     
+    const [postures, setPostures] = useState([]);
+
+    const doFetch = async () => {
+        const api = await fetch('https://yoga-api-nzy4.onrender.com/v1/poses')
+        const posturesApi = await api.json();
+        setPostures(posturesApi);
+    }
+
+    useEffect(() =>{
+        doFetch()
+    });
+
     const onItemClick = (itemId) => {
-        const itemSeleccionado = DatosPosturas.find((item) => item.id === itemId);
-        setItemSeleccionado(itemSeleccionado);
-        localStorage.setItem('item', JSON.stringify(itemSeleccionado));
+        const selectedItem = postures.find((posture) => posture.id === itemId);
+        setSelectedItem(selectedItem);
+        localStorage.setItem('item', JSON.stringify(selectedItem));
+        console.log(selectedItem);
         navigate("/details");
     };
-   
-    const handleLogout = () => {
-        localStorage.clear();
-        navigate("/");
-      };  
 
     return(
         <div className='listado'>
-            <h3 className='mensaje-seleccion-postura'>Selecciona una postura para ver los detalles</h3> 
+            <Logout /> 
+            <h3 className='mensaje-seleccion-postura'>Click on a posture to get the details</h3> 
             <div className='item-list'>
-                {DatosPosturas.map((item) => (
-                    <div className='item' key={item.id} item={item} onClick={() => onItemClick(item.id)} >
-                        <img className='item-image' src={item.image} alt={item.name} />
+                {postures.map((posture) => (
+                    <div className='item' key={posture.id} item={posture} onClick={() => onItemClick(posture.id)} >
+                        <img className='item-image' src={posture.url_png} alt={posture.url_svg_alt} />
                         <div className='item-content'>
-                            <h3 className='item-name'>{item.name}</h3>
+                            <h3 className='item-name'> {posture.english_name}</h3>
                             <p>
-                                <span id='detail-item'>Nombre en sánscrito: </span>
-                                <span>{item.sanscrito}</span>
+                                <span id='detail-item'>Sanskrit name: </span>
+                                <span>{posture.sanskrit_name}</span>
                             </p>
                             <p>
-                                <span id='detail-item'> Nombre en inglés: </span>
-                                <span>{item.ingles}</span>
-                            </p>
-                            <p>
-                                <span id='detail-item'>Beneficios: </span>
-                                <span>{item.benefits}</span>
+                                <span id='detail-item'> Translation name: </span>
+                                <span>{posture.translation_name}</span>
                             </p>
                         </div>
                     </div>
                 ))}
             </div>
-            <button className="button-logout" onClick={handleLogout}>
-                Cerrar Sesión
-            </button> 
+            <Logout /> 
         </div>        
     );
 }

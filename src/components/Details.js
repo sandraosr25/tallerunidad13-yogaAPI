@@ -7,25 +7,21 @@ export default function Details() {
     const selectedItem = JSON.parse(localStorage.getItem('item'));
     
     const backHome = () => {
-        navigate("/Listado");
+        navigate("/listado");
     }
 
     return(
         <div className='detail-content'>
-            <img className='detail-image' src={selectedItem.image} alt={selectedItem.name} />
+            <img className='detail-image' src={selectedItem.url_png} alt={selectedItem.url_svg_alt} />
                 <div className='detail-info'>
-                    <h2>🕉️{selectedItem.name}</h2>
-                    <p id='detail-item'>Descripción: </p>   
-                    <p>{selectedItem.description}</p>
-                    <p id='detail-item'>Beneficios: </p>
-                    <p>{selectedItem.morebenefits}</p>
-                    <p id='detail-item'>Grupos musculares involucrados: </p>
-                    <p>{selectedItem.musculos}</p>
-                    <p id='detail-item'>Mira este video para ver cómo se hace: <span></span>
-                        <Button className="video-button" href={selectedItem.href} target="blank">{selectedItem.name}</Button>
-                    </p>
+                    <h2>🕉️{selectedItem.english_name}</h2>
+                    <p id='detail-item'>Sanskrit name: <span>{selectedItem.sanskrit_name}</span> </p>
+                    <p id='detail-item'>Description: </p>   
+                    <p>{selectedItem.pose_description}</p>
+                    <p id='detail-item'>Benefits: </p>
+                    <p>{selectedItem.pose_benefits}</p>
                      <Button className='details-button' onClick={backHome}>
-                        Volver al listado de posturas</Button>
+                        Back to list of postures</Button>
                 </div>
         </div>
     

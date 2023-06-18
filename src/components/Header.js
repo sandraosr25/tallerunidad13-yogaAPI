@@ -1,9 +1,6 @@
-import { Header} from 'semantic-ui-react';
+export default function Header() {
+        return (
+            <h1 className='header'>Yoga Postures (Asanas)</h1>  
+        );
+}
 
-const Heading = () => (
-    <Header as="h1" className='header'>
-        Las 6 posturas (Asanas) de Yoga principales
-    </Header>
-)
-
-export default Heading

@@ -4,24 +4,24 @@ import { useNavigate} from "react-router-dom";
 
 export default function Login () {
     const navigate = useNavigate();
-    const [nombreUsuario, setNombreUsuario] = useState('');
-    const [contraseña, setContraseña] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
     const handleChangeNombreUsuario = (event) => {
-        setNombreUsuario(event.target.value);
+        setUserName(event.target.value);
     };
 
     const handleChangeContraseña = (event) => {
-        setContraseña(event.target.value);
+        setPassword(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (nombreUsuario === 'sandra' && contraseña === '1234') {
+        if (userName === 'sandra' && password === '1234') {
             localStorage.setItem("isLogged", "true");
-            localStorage.setItem("username", nombreUsuario);
-            localStorage.setItem("password", contraseña);
+            localStorage.setItem("username", userName);
+            localStorage.setItem("password", password);
             navigate('/listado');
 
         } else {
@@ -32,18 +32,18 @@ export default function Login () {
 
   return(
         <div className='login'>
-                <h2>Inicia sesión</h2>
+                <h2>Please Log in</h2>
                 <p className='mensaje-error'>{error}</p>
                 <form onSubmit={handleSubmit}>
                     <label>
-                        Nombre de usuario:
-                        <input type='text' value={nombreUsuario} onChange={handleChangeNombreUsuario}/>
+                        User Name:
+                        <input type='text' value={userName} onChange={handleChangeNombreUsuario}/>
                     </label>
                     <label>
-                        Contraseña:
-                        <input type='password' value={contraseña} onChange={handleChangeContraseña} />
+                        Password:
+                        <input type='password' value={password} onChange={handleChangeContraseña} />
                      </label>
-                    <button type='submit'>Iniciar sesión</button>
+                    <button type='submit'>Login</button>
                  </form>
         </div>
   );
