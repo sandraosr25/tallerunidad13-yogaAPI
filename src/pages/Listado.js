@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Icon, Button } from "semantic-ui-react";
 import Logout from "../components/Logout";
 
 export default function Listado() {
@@ -29,7 +29,8 @@ export default function Listado() {
 
     return(
         <div className='listado'>
-            <Logout /> 
+            <Logout />
+
             <h3 className='mensaje-seleccion-postura'>Click on a posture to get the details</h3> 
             <div className='item-list'>
                 {postures.map((posture) => (
