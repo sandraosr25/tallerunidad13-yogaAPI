@@ -16,11 +16,10 @@ const Categories = ({ setFilters }) => {
 
     return (
         <div className="categories">
+            <button className="category-button" onClick={() => setFilters(null)}>Show all categories</button>
             {categories.map(category => (
                 <button key={category} className="category-button" onClick={() => setFilters(category)}>{category}</button>
-
             ))}
-            <button className="category-button" onClick={() => setFilters(null)}>Show all categories</button>
         </div>
     );
 }
