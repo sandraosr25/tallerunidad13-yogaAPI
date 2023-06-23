@@ -33,7 +33,7 @@ export default function Login () {
   return(
         <div className='login'>
                 <h2>Please Log in</h2>
-                <p className='mensaje-error'>{error}</p>
+                <p className='error-message'>{error}</p>
                 <form onSubmit={handleSubmit}>
                     <label>
                         User Name:

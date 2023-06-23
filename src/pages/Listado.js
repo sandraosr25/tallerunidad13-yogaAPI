@@ -1,56 +1,66 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { Icon, Button } from "semantic-ui-react";
 import Logout from "../components/Logout";
+import Item from "../components/Item";
+import Categories from "../data/Categories";
 
 export default function Listado() {
     const navigate = useNavigate();
     const [selectedItem, setSelectedItem] = useState('');
-    
+
     const [postures, setPostures] = useState([]);
+    const [filters, setFilters] = useState(null);
+    const [filteredPoses, setFilteredPoses] = useState([]);
 
     const doFetch = async () => {
-        const api = await fetch('https://yoga-api-nzy4.onrender.com/v1/poses')
-        const posturesApi = await api.json();
-        setPostures(posturesApi);
+        const api = await fetch('https://yoga-api-nzy4.onrender.com/v1/categories')
+        const data = await api.json();
+        const postures = data.map(category => category.poses).flat();
+        setPostures(postures);
     }
 
-    useEffect(() =>{
+    useEffect(() => {
         doFetch()
-    });
+    }, []);
+
+    useEffect(() => {
+        let temp = postures?.filter(posture => posture.category_name === filters)
+        setFilteredPoses(temp);
+    }, [filters]);
 
     const onItemClick = (itemId) => {
         const selectedItem = postures.find((posture) => posture.id === itemId);
         setSelectedItem(selectedItem);
         localStorage.setItem('item', JSON.stringify(selectedItem));
         console.log(selectedItem);
-        navigate("/details");
+        navigate("/detalle");
     };
 
-    return(
-        <div className='listado'>
+    return (
+        <>
+            <div >
             <Logout />
-
-            <h3 className='mensaje-seleccion-postura'>Click on a posture to get the details</h3> 
-            <div className='item-list'>
-                {postures.map((posture) => (
-                    <div className='item' key={posture.id} item={posture} onClick={() => onItemClick(posture.id)} >
-                        <img className='item-image' src={posture.url_png} alt={posture.url_svg_alt} />
-                        <div className='item-content'>
-                            <h3 className='item-name'> {posture.english_name}</h3>
-                            <p>
-                                <span id='detail-item'>Sanskrit name: </span>
-                                <span>{posture.sanskrit_name}</span>
-                            </p>
-                            <p>
-                                <span id='detail-item'> Translation name: </span>
-                                <span>{posture.translation_name}</span>
-                            </p>
-                        </div>
-                    </div>
-                ))}
+            <div>
+                <h3>Click on a posture to get the details or filter by category: </h3>
+                <Categories setFilters={setFilters} />
             </div>
-            <Logout /> 
-        </div>        
+                <div className='listado'>
+                    {filteredPoses.length !== 0 ? (
+                        <div className='item-list'>
+                            {filteredPoses.map((posture) => (
+                                <Item key={posture.id} item={posture} onItemClick={onItemClick} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className='item-list'>
+                            {postures.map((posture, index) => (
+                                <Item key={`item-${index}`} item={posture} onItemClick={onItemClick} />
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+            <Logout />
+        </>
     );
 }
