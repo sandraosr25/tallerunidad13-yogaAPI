@@ -32,6 +32,7 @@ export default function Listado() {
         const selectedItem = postures.find((posture) => posture.id === itemId);
         setSelectedItem(selectedItem);
         localStorage.setItem('item', JSON.stringify(selectedItem));
+        console.log(selectedItem);
         navigate("/detalle");
     };
 
