@@ -26,13 +26,12 @@ export default function Listado() {
     useEffect(() => {
         let temp = postures?.filter(posture => posture.category_name === filters)
         setFilteredPoses(temp);
-    }, [filters]);
+    }, [filters, postures]);
 
     const onItemClick = (itemId) => {
         const selectedItem = postures.find((posture) => posture.id === itemId);
         setSelectedItem(selectedItem);
         localStorage.setItem('item', JSON.stringify(selectedItem));
-        console.log(selectedItem);
         navigate("/detalle");
     };
 

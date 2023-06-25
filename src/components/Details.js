@@ -23,7 +23,7 @@ export default function Details() {
                     <p id='detail-item'>Category: </p>
                     <p>{selectedItem.category_name}</p>
                      <Button className='details-button' onClick={backHome}>
-                        Back to list of postures</Button>
+                        Back to all postures</Button>
                 </div>
         </div>
     

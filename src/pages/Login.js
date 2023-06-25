@@ -25,10 +25,9 @@ export default function Login () {
             navigate('/listado');
 
         } else {
-            setError('Nombre de usuario o contraseña incorrectos');
+            setError('Incorrect User Name or Password');
         }
     };
-
 
   return(
         <div className='login'>

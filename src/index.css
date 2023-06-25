@@ -20,14 +20,15 @@ code {
 .header {
   font-family: 'Courgette';
   display: flex;
-  flex-direction: column;
   text-align: center;
-  font-size: 56px;
+  font-size: 20px;
   background-color: rgb(199, 78, 171);
   color: white;
   text-shadow: 1px 1px 2px rgb(225, 206, 219);;
   margin: 0;
-  padding: 5px;
+  padding: 1px;
+  justify-content: center;
+  align-items: center;
 }
 
 .App {
@@ -38,6 +39,17 @@ code {
   .header{
     margin: auto;
   }
+}
+
+.yoga-logo{
+  height: 50px;
+  width: 50px;
+  border-radius: 30px;
+}
+
+h1{
+  font-size: 56px;
+  margin: 10px;
 }
 
 h3.item-name{
@@ -261,7 +273,8 @@ h2{
 }
 
 .error-message{
-  color: rgb(154, 25, 25);
+  color: rgb(172, 21, 21);
+  font-size: 18px;
 }
 
 #sans-name{
